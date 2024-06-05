@@ -10,10 +10,14 @@
 		44AD10E92C10551E0090CF5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD10E82C10551E0090CF5F /* AppDelegate.swift */; };
 		44AD10EB2C10551E0090CF5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD10EA2C10551E0090CF5F /* SceneDelegate.swift */; };
 		44AD10ED2C10551E0090CF5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD10EC2C10551E0090CF5F /* ViewController.swift */; };
-		44AD10F02C10551E0090CF5F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 44AD10EF2C10551E0090CF5F /* Base */; };
 		44AD10F22C10551F0090CF5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44AD10F12C10551F0090CF5F /* Assets.xcassets */; };
 		44AD10F52C10551F0090CF5F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 44AD10F42C10551F0090CF5F /* Base */; };
 		44AD10FD2C10557D0090CF5F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 44AD10FC2C10557D0090CF5F /* .gitignore */; };
+		44AD10FF2C1056D00090CF5F /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD10FE2C1056D00090CF5F /* APIKey.swift */; };
+		44AD11022C105B140090CF5F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44AD11012C105B140090CF5F /* Alamofire */; };
+		44AD11052C105BD90090CF5F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44AD11042C105BD90090CF5F /* SnapKit */; };
+		44AD11072C1060F40090CF5F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD11062C1060F40090CF5F /* UIColor+Extension.swift */; };
+		44AD11092C1076340090CF5F /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD11082C1076340090CF5F /* Lotto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +25,13 @@
 		44AD10E82C10551E0090CF5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44AD10EA2C10551E0090CF5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		44AD10EC2C10551E0090CF5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		44AD10EF2C10551E0090CF5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44AD10F12C10551F0090CF5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44AD10F42C10551F0090CF5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44AD10F62C10551F0090CF5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44AD10FC2C10557D0090CF5F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		44AD10FE2C1056D00090CF5F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		44AD11062C1060F40090CF5F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		44AD11082C1076340090CF5F /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44AD11022C105B140090CF5F /* Alamofire in Frameworks */,
+				44AD11052C105BD90090CF5F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,11 +69,13 @@
 			children = (
 				44AD10E82C10551E0090CF5F /* AppDelegate.swift */,
 				44AD10EA2C10551E0090CF5F /* SceneDelegate.swift */,
+				44AD11082C1076340090CF5F /* Lotto.swift */,
 				44AD10EC2C10551E0090CF5F /* ViewController.swift */,
-				44AD10EE2C10551E0090CF5F /* Main.storyboard */,
 				44AD10F12C10551F0090CF5F /* Assets.xcassets */,
 				44AD10F32C10551F0090CF5F /* LaunchScreen.storyboard */,
 				44AD10F62C10551F0090CF5F /* Info.plist */,
+				44AD10FE2C1056D00090CF5F /* APIKey.swift */,
+				44AD11062C1060F40090CF5F /* UIColor+Extension.swift */,
 			);
 			path = SimpleLotteryProject;
 			sourceTree = "<group>";
@@ -86,6 +96,10 @@
 			dependencies = (
 			);
 			name = SimpleLotteryProject;
+			packageProductDependencies = (
+				44AD11012C105B140090CF5F /* Alamofire */,
+				44AD11042C105BD90090CF5F /* SnapKit */,
+			);
 			productName = SimpleLotteryProject;
 			productReference = 44AD10E52C10551E0090CF5F /* SimpleLotteryProject.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +128,10 @@
 				Base,
 			);
 			mainGroup = 44AD10DC2C10551E0090CF5F;
+			packageReferences = (
+				44AD11002C105B140090CF5F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				44AD11032C105BD90090CF5F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 44AD10E62C10551E0090CF5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,7 +149,6 @@
 				44AD10FD2C10557D0090CF5F /* .gitignore in Resources */,
 				44AD10F22C10551F0090CF5F /* Assets.xcassets in Resources */,
 				44AD10F52C10551F0090CF5F /* Base in Resources */,
-				44AD10F02C10551E0090CF5F /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,23 +159,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44AD11092C1076340090CF5F /* Lotto.swift in Sources */,
 				44AD10ED2C10551E0090CF5F /* ViewController.swift in Sources */,
 				44AD10E92C10551E0090CF5F /* AppDelegate.swift in Sources */,
+				44AD10FF2C1056D00090CF5F /* APIKey.swift in Sources */,
 				44AD10EB2C10551E0090CF5F /* SceneDelegate.swift in Sources */,
+				44AD11072C1060F40090CF5F /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		44AD10EE2C10551E0090CF5F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44AD10EF2C10551E0090CF5F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		44AD10F32C10551F0090CF5F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -301,7 +313,6 @@
 				INFOPLIST_FILE = SimpleLotteryProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -334,7 +345,6 @@
 				INFOPLIST_FILE = SimpleLotteryProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -377,6 +387,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		44AD11002C105B140090CF5F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		44AD11032C105BD90090CF5F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44AD11012C105B140090CF5F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44AD11002C105B140090CF5F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		44AD11042C105BD90090CF5F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44AD11032C105BD90090CF5F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44AD10DD2C10551E0090CF5F /* Project object */;
 }
