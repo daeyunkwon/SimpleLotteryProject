@@ -8,6 +8,7 @@
 import UIKit
 
 struct Lotto: Decodable {
+    let returnValue: String
     let date: String?
     let drwtNo1: Int?
     let drwtNo2: Int?
@@ -18,6 +19,7 @@ struct Lotto: Decodable {
     let bnusNo: Int?
     
     enum CodingKeys: String, CodingKey {
+        case returnValue
         case date = "drwNoDate"
         case drwtNo1
         case drwtNo2

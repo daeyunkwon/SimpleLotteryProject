@@ -18,6 +18,7 @@
 		44AD11052C105BD90090CF5F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44AD11042C105BD90090CF5F /* SnapKit */; };
 		44AD11072C1060F40090CF5F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD11062C1060F40090CF5F /* UIColor+Extension.swift */; };
 		44AD11092C1076340090CF5F /* Lotto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD11082C1076340090CF5F /* Lotto.swift */; };
+		44AD110B2C1088220090CF5F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD110A2C1088220090CF5F /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		44AD10FE2C1056D00090CF5F /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		44AD11062C1060F40090CF5F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		44AD11082C1076340090CF5F /* Lotto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lotto.swift; sourceTree = "<group>"; };
+		44AD110A2C1088220090CF5F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				44AD10F62C10551F0090CF5F /* Info.plist */,
 				44AD10FE2C1056D00090CF5F /* APIKey.swift */,
 				44AD11062C1060F40090CF5F /* UIColor+Extension.swift */,
+				44AD110A2C1088220090CF5F /* UserDefaultsManager.swift */,
 			);
 			path = SimpleLotteryProject;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				44AD11092C1076340090CF5F /* Lotto.swift in Sources */,
 				44AD10ED2C10551E0090CF5F /* ViewController.swift in Sources */,
 				44AD10E92C10551E0090CF5F /* AppDelegate.swift in Sources */,
+				44AD110B2C1088220090CF5F /* UserDefaultsManager.swift in Sources */,
 				44AD10FF2C1056D00090CF5F /* APIKey.swift in Sources */,
 				44AD10EB2C10551E0090CF5F /* SceneDelegate.swift in Sources */,
 				44AD11072C1060F40090CF5F /* UIColor+Extension.swift in Sources */,

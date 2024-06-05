@@ -14,8 +14,9 @@ final class ViewController: UIViewController {
     
     //MARK: - Properties
     
-    var rounds: [Int] = Array(1...1122)
+    var rounds: [Int] = []
     
+    var userDefaultsManager = UserDefaultsManager()
     
     //MARK: - UI Components
     
@@ -150,12 +151,29 @@ final class ViewController: UIViewController {
         super.viewDidAppear(animated)
         makeCircularNumberLabel()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
+        
         configureLayout()
         configureUI()
         configureTextField()
+        callRequest(round: rounds[rounds.count-1])
+    }
+    
+    private func setupData() {
+        if userDefaultsManager.lastRound == 0 { //데이터가 없다면 초기 데이터 주입
+            userDefaultsManager.lastRound = 1122
+        }
+        
+        if userDefaultsManager.lastDateString == nil { //데이터가 없다면 초기 데이터 주입
+            userDefaultsManager.lastDateString = "2024-06-01"
+        }
+        
+        rounds = Array(1...userDefaultsManager.lastRound) //회차 배열 만들어두기
+        
+        callRequestForUpdateLastRoundData() //마지막 저장 날짜와 오늘 날짜가 8일 차이 난다면 새로운 회차 갱신
     }
     
     private func configureLayout() {
@@ -223,6 +241,8 @@ final class ViewController: UIViewController {
     }
     
     private func configureTextField() {
+        roundNumberTextField.delegate = self
+        
         let picker = UIPickerView()
         picker.dataSource = self
         picker.delegate = self
@@ -234,7 +254,6 @@ final class ViewController: UIViewController {
     private func makeCircularNumberLabel() {
         [firstNumberLabel, secondNumberLabel, thirdNumberLabel, fourthNumberLabel, fifthNumberLabel, sixthNumberLabel, plusLabel, bonusNumberLabel].forEach { label in
             label.layer.cornerRadius = label.frame.width / 2
-            print(label.frame.size)
         }
     }
     
@@ -256,7 +275,7 @@ final class ViewController: UIViewController {
               let sixthNumber = data.drwtNo6,
               let bonusNumber = data.bnusNo else {return}
         
-        dateLabel.text = date + "추첨"
+        dateLabel.text = date + " 추첨"
         
         let attributed = NSMutableAttributedString(string: "\(round)회 당첨결과", attributes: [.font: UIFont.boldSystemFont(ofSize: 20), .foregroundColor: UIColor.customYellow()])
         let text = "\(round)회 당첨결과"
@@ -271,6 +290,47 @@ final class ViewController: UIViewController {
         fifthNumberLabel.text = "\(fifthNumber)"
         sixthNumberLabel.text = "\(sixthNumber)"
         bonusNumberLabel.text = "\(bonusNumber)"
+    }
+    
+    private func callRequestForUpdateLastRoundData() {
+        
+        guard let lastDate = userDefaultsManager.lastDateString else {return}
+        
+        let dateString: String = lastDate  //마지막 저장된 날짜
+        let myFormatter = DateFormatter()
+        myFormatter.dateFormat = "yyyy-MM-dd"  // String의 문자열 형식과 동일 해야함
+        myFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        guard let baseDate = myFormatter.date(from: dateString)?.timeIntervalSinceReferenceDate else {return}
+        
+        let todayDate = Date.timeIntervalSinceReferenceDate
+        
+        let executeCount = (todayDate - baseDate) / (604800 + 86400) //8일 후
+        
+        if Int(executeCount) > 0 {
+            let today = Date(timeIntervalSinceReferenceDate: todayDate)
+            myFormatter.dateFormat = "yyyy-MM-dd"
+            myFormatter.locale = Locale(identifier: "ko_KR")
+            userDefaultsManager.lastDateString = myFormatter.string(from: today) //오늘날짜를 마지막 날짜로 대체
+            
+            for round in 1...Int(executeCount) {
+                let url = APIURL.lottoURL + "\(round)"
+                AF.request(url).responseDecodable(of: Lotto.self) { response in
+                    switch response.result {
+                    case .success(let value):
+                        if value.returnValue == "fail" {
+                            return
+                        } else if value.returnValue == "success" {
+                            let lastRound = self.userDefaultsManager.lastRound
+                            self.userDefaultsManager.lastRound = lastRound + 1
+                            self.rounds.append(self.userDefaultsManager.lastRound)
+                        }
+                        
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }
     }
     
     private func callRequest(round: Int) {
@@ -303,6 +363,22 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         callRequest(round: rounds[row])
+        roundNumberTextField.text = "\(rounds[row])"
     }
 }
+
+//MARK: - UITextFieldDelegate
+
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == roundNumberTextField {
+            if UIPasteboard.general.isKind(of: UIPasteboard.self) {
+                return false
+            }
+            return true
+        }
+        return true
+    }
+}
+
 
